@@ -1,51 +1,40 @@
-import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
-import Link from "./Link";
-import { SelectedPage } from "@/shared/types/types";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import DesktopMenu from "./DesktopMenu";
+import MobileMenu from "./MobileMenu";
+import { NavbarPropsType } from "@/shared/types/NavbarType";
 
-type Props = {
-  selectedPage: SelectedPage;
-  setSelectedPage: (val: SelectedPage) => void;
-};
-
-const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
+const Navbar = ({
+  selectedPage,
+  setSelectedPage,
+  isTopOfPage,
+}: NavbarPropsType) => {
   const flexBetween = "flex items-center justify-between";
+  const isAboveMdScreen = useMediaQuery("(min-width: 1060px)");
+  const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
 
   return (
-    <nav className={flexBetween}>
-      <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
+    <nav>
+      <div
+        className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}
+      >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             <img src={Logo} alt="logo" />
 
             <div className={`${flexBetween} w-full`}>
-              <div className={`${flexBetween} gap-8 text-sm`}>
-                <Link
-                  page="Home"
+              {isAboveMdScreen ? (
+                <DesktopMenu
                   selectedPage={selectedPage}
                   setSelectedPage={setSelectedPage}
                 />
-                <Link
-                  page="Benefits"
+              ) : (
+                <MobileMenu
                   selectedPage={selectedPage}
                   setSelectedPage={setSelectedPage}
+                  isAboveMdScreen={isAboveMdScreen}
                 />
-                <Link
-                  page="Our Classes"
-                  selectedPage={selectedPage}
-                  setSelectedPage={setSelectedPage}
-                />
-                <Link
-                  page="Contact Us"
-                  selectedPage={selectedPage}
-                  setSelectedPage={setSelectedPage}
-                />
-              </div>
-              <div className={`${flexBetween} gap-8`}>
-                <p>Sing In</p>
-                <button>Become a member</button>
-              </div>
+              )}
             </div>
           </div>
         </div>

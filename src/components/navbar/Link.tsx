@@ -1,16 +1,11 @@
+import { NavbarPropsType } from "@/shared/types/NavbarType";
 import { SelectedPage } from "@/shared/types/types";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-type Props = {
-  page: string;
-  selectedPage: SelectedPage;
-  setSelectedPage: (val: SelectedPage) => void;
-};
-
-const Link = ({ page, selectedPage, setSelectedPage }: Props) => {
-  const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage;
+const Link = ({ page, selectedPage, setSelectedPage }: NavbarPropsType) => {
+  const lowerCasePage = page?.toLowerCase().replace(/ /g, "") as SelectedPage;
   const selectedElementClasses =
-    selectedPage === lowerCasePage ? "text-lg text-primary-500" : "";
+    selectedPage === lowerCasePage ? "text-primary-500" : "";
 
   return (
     <AnchorLink
