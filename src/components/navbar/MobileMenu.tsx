@@ -1,27 +1,20 @@
-import { NavbarPropsType } from "@/shared/types/NavbarType";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { MobileMenuType } from "@/shared/types/NavbarType";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "./Link";
 
 function MobileMenu({
   selectedPage,
   setSelectedPage,
   isAboveMdScreen,
-}: NavbarPropsType) {
-  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  isToggleMenu,
+  setIsToggleMenu,
+}: MobileMenuType) {
   return (
     <>
-      <button
-        className="ml-auto rounded-full bg-secondary-500 p-2"
-        onClick={() => setToggleMenu(!toggleMenu)}
-      >
-        <Bars3Icon className="h-6 w-6 text-white" />
-      </button>
-
-      {!isAboveMdScreen && toggleMenu && (
-        <div className="z-90 fixed right-0 bottom-0 top-0 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+      {!isAboveMdScreen && isToggleMenu && (
+        <div className="fixed right-0 bottom-0 top-0 z-50 h-full w-[300px] bg-primary-100 drop-shadow-xl">
           <div className="flex justify-end p-12">
-            <button onClick={() => setToggleMenu(!toggleMenu)}>
+            <button onClick={() => setIsToggleMenu(!isToggleMenu)}>
               <XMarkIcon className="h-6 w-6  text-gray-400" />
             </button>
           </div>

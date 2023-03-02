@@ -7,3 +7,8 @@ export type NavbarPropsType = {
   isAboveMdScreen?: boolean;
   isTopOfPage?: boolean;
 };
+
+export type MobileMenuType = {
+  isToggleMenu: boolean;
+  setIsToggleMenu: (val: boolean) => void;
+} & NavbarPropsType;
