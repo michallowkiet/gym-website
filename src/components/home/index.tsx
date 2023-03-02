@@ -17,7 +17,10 @@ const Home = ({ setSelectedPage }: Props) => {
   const isAboveMdScreen = useMediaQuery("(min-width: 1060px)");
 
   return (
-    <section id="home" className="g-16 bg-gray-20 py-10 md:h-full md:pb-0">
+    <section
+      id="home"
+      className="flex flex-col gap-16 bg-gray-20 py-10 md:h-full md:pb-0"
+    >
       <motion.div
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
@@ -76,7 +79,7 @@ const Home = ({ setSelectedPage }: Props) => {
       </motion.div>
 
       {isAboveMdScreen && (
-        <div className="h-[150px] w-full bg-primary-100 py-10">
+        <div className="mt-auto h-[150px] w-full bg-primary-100 py-10">
           <div className="mx-auto w-5/6">
             <div className="mx-auto flex w-3/5 items-center justify-between gap-y-8">
               <img src={SponsorForbes} alt="Forbes Logo" />
