@@ -60,7 +60,7 @@ const OurClasses = ({ setSelectedPage }: SetSelectedPageType) => {
         }}
         className="mx-auto  w-5/6"
       >
-        <div className="mx-auto w-3/5">
+        <div className="mx-auto md:w-3/5">
           <Htext className="text-center">Our Classes</Htext>
           <p className="py-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
