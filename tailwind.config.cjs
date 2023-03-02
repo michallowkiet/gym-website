@@ -25,9 +25,9 @@ module.exports = {
       },
       content: {
         evolve: "url('./assets/EvolveText.png')",
-        waves: "url('./src/assets/AbstractWaves.png')",
-        sparkles: "url('./src/assets/Sparkles.png')",
-        circles: "url('./src/assets/Circles.png')",
+        waves: "url('./assets/AbstractWaves.png')",
+        sparkles: "url('./assets/Sparkles.png')",
+        circles: "url('./assets/Circles.png')",
       },
       screens: {
         xs: "480px",
